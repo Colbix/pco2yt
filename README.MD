@@ -8,6 +8,10 @@ A Flask-based web application that automates YouTube video uploads and metadata 
 - **Custom YouTube Scheduling:** Pick a specific publish date and time independent of the service date.
 - **Interactive UI:** Supports drag-and-drop file uploads, dark/light theme toggling, and live metadata previews.
 
+![The initial logon to a Google account](./images/initial-yt-logon.jpg)
+
+![The main interface for previewing PCO and scheduling Youtube uploads](./images/interface.jpg)
+
 ---
 
 ## Setup & Credentials
