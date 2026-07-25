@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Automation Sync</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="dark-mode">
+
+<div class="top-bar">
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">☀️ Light Mode</button>
+</div>
+
+<div id="auth-container" class="card" style="display: none;">
+    <h3>YouTube Authorization Required</h3>
+    <hr class="divider">
+    <p>To schedule video uploads to YouTube, you must authorize access to your YouTube channel first.</p>
+    <p>Please run the authentication flow to generate your token.json file:</p>
+    <ol style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+        <li>Click the button below to sign in with your Google account.</li>
+        <li>Grant permissions for YouTube video uploads.</li>
+        <li>The interface will update automatically once verified.</li>
+    </ol>
+    <button id="auth-button" class="btn">Connect YouTube Account</button>
+</div>
+
+<div id="main-menu" class="card" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Planning Center Online to YouTube</h2>
+        <button id="reauth-btn" class="secondary-btn" style="width: auto; padding: 6px 12px; font-size: 12px;">Switch YouTube Account</button>
+    </div>
+    <hr class="divider">
+    
+    <!-- Select Service Date -->
+    <div class="form-group">
+        <label for="service-date">Select Service Date (Planning Center)</label>
+        <input type="date" id="service-date" required>
+    </div>
+
+    <!-- Planning Center Live Preview -->
+    <div id="pco-preview" class="preview-card" style="display: none;">
+        <h3>Planning Center Live Preview</h3>
+        <hr class="divider">
+        <div class="preview-content">
+            <img id="preview-thumb" src="" alt="Series Artwork" style="display: none;">
+            <div class="preview-details">
+                <strong id="preview-title">Loading...</strong>
+                <pre id="preview-desc"></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- YouTube Schedule Date & Time Pickers -->
+    <div style="display: flex; gap: 15px;">
+        <div class="form-group" style="flex: 1;">
+            <label for="publish-date">YouTube Publish Date</label>
+            <input type="date" id="publish-date" required>
+        </div>
+        <div class="form-group" style="flex: 1;">
+            <label for="publish-time">Publish Time</label>
+            <input type="time" id="publish-time" value="13:00" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Upload Video</label>
+        <div id="drop-zone">Drag and drop your video file here, or click to choose</div>
+        <input type="file" id="file-input" accept="video/*" style="display: none;">
+    </div>
+
+    <button id="submit-btn">Publish to YouTube</button>
+</div>
+
+<div id="status" class="card" style="display: none; margin-top: 20px;"></div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

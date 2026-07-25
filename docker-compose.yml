@@ -1,0 +1,15 @@
+services:
+  uploader-app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - PCO_CLIENT_ID= # PCO PAT client ID
+      - PCO_SECRET= # PCO PAT secret
+      # Provide your local structural timezone geography name here:
+      - TARGET_TIMEZONE=America/New_York
+    volumes:
+      # Mounts your credentials safely into the app directory
+      - $(pwd)/client_secrets.json:/app/client_secrets.json:ro
+      # Mount to place the YoutTube OAuth token if needed
+      - $(pwd)/:/app

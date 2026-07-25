@@ -1,0 +1,7 @@
+Flask==3.0.2
+requests==2.31.0
+google-api-python-client
+google-auth-oauthlib
+google-auth-httplib2
+google-auth
+werkzeug==3.0.1

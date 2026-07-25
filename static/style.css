@@ -1,0 +1,220 @@
+:root {
+    /* Dark Mode Defaults */
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --heading-color: #38bdf8;
+    --border-color: #334155;
+    --input-bg: #0f172a;
+    --input-border: #475569;
+    --dropzone-bg: #111827;
+    --dropzone-hover: #1f2937;
+    --preview-bg: #0f172a;
+    --btn-bg: #10b981;
+    --btn-hover: #059669;
+}
+
+body:not(.dark-mode) {
+    /* Light Mode Overrides */
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --heading-color: #2c3e50;
+    --border-color: #eee;
+    --input-bg: #ffffff;
+    --input-border: #ccc;
+    --dropzone-bg: #ecf0f1;
+    --dropzone-hover: #d5dbdb;
+    --preview-bg: #f8f9fa;
+    --btn-bg: #2ecc71;
+    --btn-hover: #27ae60;
+}
+
+body { 
+    font-family: 'Segoe UI', system-ui, sans-serif; 
+    background-color: var(--bg-color); 
+    color: var(--text-primary); 
+    max-width: 600px; 
+    margin: 20px auto 40px auto; 
+    padding: 20px; 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.theme-toggle-btn {
+    width: auto;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--border-color);
+}
+
+.card { 
+    background: var(--card-bg); 
+    padding: 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
+    transition: background-color 0.3s;
+}
+
+h2, h3 { 
+    margin-top: 0; 
+    color: var(--heading-color); 
+}
+
+.divider {
+    border: 0; 
+    border-top: 1px solid var(--border-color); 
+    margin-bottom: 20px;
+}
+
+.form-group { 
+    margin-bottom: 20px; 
+}
+
+label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: 600; 
+}
+
+input[type="date"],
+input[type="time"] { 
+    width: 100%; 
+    padding: 10px; 
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--input-border); 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    font-size: 15px;
+    color-scheme: dark;
+}
+
+body:not(.dark-mode) input[type="date"],
+body:not(.dark-mode) input[type="time"] {
+    color-scheme: light;
+}
+
+/* Planning Center Preview Box */
+.preview-card {
+    background: var(--preview-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.preview-content {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+#preview-thumb {
+    width: 120px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.preview-details {
+    flex: 1;
+}
+
+.preview-details strong {
+    display: block;
+    font-size: 16px;
+    color: var(--heading-color);
+    margin-bottom: 6px;
+}
+
+.preview-details pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+    background: transparent;
+}
+
+#drop-zone { 
+    border: 2px dashed #3498db; 
+    border-radius: 6px; 
+    padding: 40px; 
+    text-align: center; 
+    background: var(--dropzone-bg); 
+    color: var(--text-secondary);
+    cursor: pointer; 
+    transition: background 0.3s; 
+}
+
+#drop-zone.hover { 
+    background: var(--dropzone-hover); 
+    border-color: #2980b9; 
+}
+
+button:not(.theme-toggle-btn) { 
+    background: var(--btn-bg); 
+    color: white; 
+    border: none; 
+    width: 100%; 
+    padding: 12px; 
+    font-size: 16px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: bold; 
+}
+
+button:not(.theme-toggle-btn):hover { 
+    background: var(--btn-hover); 
+}
+
+#status { 
+    margin-top: 20px; 
+    padding: 10px; 
+    border-radius: 4px; 
+    display: none; 
+}
+
+.success { 
+    background: #064e3b; 
+    color: #a7f3d0; 
+    border: 1px solid #047857;
+}
+
+.error { 
+    background: #7f1d1d; 
+    color: #fecaca; 
+    border: 1px solid #b91c1c;
+}
+
+.secondary-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.secondary-btn:hover {
+    background: #dc2626;
+}
