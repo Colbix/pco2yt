@@ -20,7 +20,7 @@ Before running the container, obtain your API credentials:
 
 ### Step 1: Obtain Planning Center Personal Access Tokens
 
-Planning Center uses HTTP Basic Authentication using a `Client ID` (Application ID) and `Secret` (Secret Key).
+Planning Center uses token authentication with a `Client ID` (Application ID) and `Secret` (Secret Key).
 
 1. Log into your account at [Planning Center Online](https://planningcenter.com).
 2. Go to your Developer Portal at [api.planningcenteronline.com/oauth/applications](https://api.planningcenteronline.com/oauth/applications).
