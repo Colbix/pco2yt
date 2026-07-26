@@ -28,6 +28,7 @@ PCO_SECRET = os.environ.get("PCO_SECRET")
 TARGET_TZ_STR = os.environ.get("TARGET_TIMEZONE", "America/New_York")
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
+STATIC_CODE_VERIFIER = "local_docker_automation_sync_development_code_verifier_string_12345"
 CLIENT_SECRETS_FILE = "/app/client_secrets.json"
 TOKEN_FILE = "/app/token.json"
 SCOPES = ['https://www.googleapis.com/auth/youtube.upload']
