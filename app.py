@@ -171,6 +171,8 @@ def get_pco_metadata(target_date):
         if livestream_content:
             #description += f"\n\n--- Livestream Summary ---\n{livestream_content}"
             description = f"{livestream_content}"
+        else:
+            description = f""
 
         return {
             "title": f"{series_name} - {title} ({target_date})",
