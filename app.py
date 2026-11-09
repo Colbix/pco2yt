@@ -32,6 +32,8 @@ STATIC_CODE_VERIFIER = "local_docker_automation_sync_development_code_verifier_s
 CLIENT_SECRETS_FILE = "/app/client_secrets.json"
 TOKEN_FILE = "/app/token.json"
 SCOPES = ['https://www.googleapis.com/auth/youtube.upload']
+cert_file = '/app/cert.pem'
+key_file = '/app/key.pem'
 
 def ensure_token_file_exists():
     """Ensures that the token file path exists and is initialized if missing."""
@@ -420,4 +422,12 @@ def test_connections():
     return jsonify(status)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+
+    # Check if both certificate files exist in the container
+    if os.path.exists(cert_file) and os.path.exists(key_file):
+        print(f"🔒 Certificates found. Starting server securely via HTTPS on port {port}...")
+        app.run(host='0.0.0.0', port=port, ssl_context=(cert_file, key_file))
+    else:
+        print(f"⚠️ Certificates not found. Falling back to standard HTTP on port {port}...")
+        app.run(host='0.0.0.0', port=port)
